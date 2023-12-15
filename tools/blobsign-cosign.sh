@@ -10,7 +10,7 @@ echo -e "\n Provide the Name for the Private and Public Key e.g(my-key)"
 
 read keyName
 
-echo -e "\n Generating the Private and Public Key in Cosign..."
+echo -e "\n Generating the Private and Public Key in Cosign...\n Please press enter if you do not want to provide the password for the Key generation (Not Recomended)"
 
 cosign generate-key-pair --output-key-prefix $keyName
 
