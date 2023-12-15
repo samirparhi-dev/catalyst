@@ -16,11 +16,11 @@
 
 ## Explanation of Each scripts:
 
-- tools/blobsign-cosign.sh : To sign a file / SBOM / any blob using the sigstore's Cosign utility.
-- tools/cwe_details.py : The python script to scarp CWE details from CWE sites
-- tools/cweCveAssociation.py : This Script finds all the possible CVE for given CWEs.
-- tools/parseBigjson.py : WIP
-- tools/Static_code_analysis_consolidation_report.py : This script is quiet interesting , It processes all the static code analysis files that are obtained as json format from `Snyk` `CodeQl` and `SonarQube` and creates a consolidated Json file which can be further processed for various purpose, For example 
+- `tools/blobsign-cosign.sh` : To sign a file / SBOM / any blob using the sigstore's Cosign utility.
+- `tools/cwe_details.py` : The python script to scarp CWE details from CWE sites
+- `tools/cweCveAssociation.py` : This Script finds all the possible CVE for given CWEs.
+- `tools/parseBigjson.py` : WIP
+- `tools/Static_code_analysis_consolidation_report.py` : This script is quiet interesting , It processes all the static code analysis files that are obtained as json format from `Snyk` `CodeQl` and `SonarQube` and creates a consolidated Json file which can be further processed for various purpose, For example 
     1. To reduce the false positive
     2. Prioritize the issue to be fixed
     3. Remove anomalies etc.
