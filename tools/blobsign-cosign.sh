@@ -2,9 +2,9 @@
 
 set -e
 
-echo -e "\n Important !!! This script only sign the file/Blobs"
+echo -e "\n Important !!! This script only sign the file/Blobs 📂"
 
-echo -e "\n Please keep this script in the same folder where your file is located which intended to be signed"
+echo -e "\n Please keep this script in the same folder where your file is located which intended to be signed \n Enter `ctrl+c` or `control+c` to exit from this script any time"
 
 echo -e "\n Provide the Name for the Private and Public Key e.g(my-key)"
 
