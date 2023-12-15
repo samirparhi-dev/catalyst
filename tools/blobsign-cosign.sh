@@ -33,7 +33,7 @@ cosign sign-blob $fileName --key $keyName.key --output-signature $signatureFileN
 
 echo -e "\n${BOLD}${BLUE}Your Signature is:${RESET} $(cat "$signatureFileName")\n"
 
-echo -e "${BLUE}Would you like to Verify the Signature Now ? y = Yes, n = No ·${RESET}"
+echo -e "${BLUE}Would you like to Verify the Signature Now ?${RESET} y = Yes, n = No ·"
 
 read option
 
