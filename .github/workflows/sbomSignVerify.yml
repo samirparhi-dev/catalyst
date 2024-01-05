@@ -15,6 +15,9 @@ on:
             target_directory:
                 description: 'Target Directory'
                 required: true
+            file_to_sign:
+                description: Which file you would like to sign ? please provide (Path/to/fileName)
+                required: true              
 jobs:
   clone-repository:
     runs-on: ubuntu-latest
@@ -26,7 +29,6 @@ jobs:
       run: |
         REPO_URL=$INPUT_REPO_URL
         TARGET_DIRECTORY=$INPUT_TARGET_DIRECTORY
-
         echo "Cloning repository from $REPO_URL into $TARGET_DIRECTORY"
         git clone $REPO_URL $TARGET_DIRECTORY
       env:
@@ -37,6 +39,23 @@ jobs:
       run: |
         ls -al $INPUT_TARGET_DIRECTORY
         pwd
+        cd $INPUT_TARGET_DIRECTORY
+
+    - name: Install Cosign
+      uses: sigstore/cosign-installer@v3.3.0
+      
+    #This step to be validated
+    - name: Generating a Key pair for CoSign
+      run: |
+          cosign generate-key-pair --output-key-prefix coSignKey
+ 
+    - name: Signing file with a key
+      run: |
+          cosign sign-blob $fileName --key $keyName.key --output-signature $signatureFileName -y
+          cosign sign --yes --key env://COSIGN_PRIVATE_KEY ${images}
+      env:
+          COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
+          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
 
         
         
