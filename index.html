@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Actions Trigger</title>
+</head>
+<body>
+    <h1>GitHub Actions Trigger</h1>
+    <button onclick="triggerWorkflow()">Trigger Workflow</button>
+
+    <script>
+        function triggerWorkflow() {
+            // Replace 'YOUR_REPOSITORY_NAME' with your actual repository name
+            const repository = 'YOUR_REPOSITORY_NAME';
+            
+            // Define the GitHub API endpoint to trigger the workflow_dispatch event
+            const apiEndpoint = `https://api.github.com/repos/${repository}/actions/workflows/workflow.yml/dispatches`;
+
+            // Replace 'YOUR_PERSONAL_ACCESS_TOKEN' with your GitHub Personal Access Token
+            const token = 'YOUR_PERSONAL_ACCESS_TOKEN';
+
+            // User input
+            const user_input = prompt('Enter some input:');
+
+            // Make a POST request to trigger the workflow
+            fetch(apiEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    ref: 'main', // Replace with your branch name
+                    inputs: {
+                        user_input: user_input
+                    }
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                alert('Workflow triggered successfully!');
+            })
+            .catch(error => {
+                console.error('Error triggering workflow:', error);
+                alert('Failed to trigger workflow. Check the console for details.');
+            });
+        }
+    </script>
+</body>
+</html>
