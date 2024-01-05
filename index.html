@@ -4,10 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub Actions Trigger</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #3498db, #2ecc71); /* Replace with your desired gradient colors */
+            color: #ffffff;
+        }
+
+        header, footer {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>GitHub Actions Trigger</h1>
-    <button onclick="triggerWorkflow()">Trigger Workflow</button>
+    <header>
+        <h1>GitHub Actions Trigger</h1>
+    </header>
+
+    <main>
+        <button onclick="triggerWorkflow()">Trigger Workflow</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Name</p>
+    </footer>
 
     <script>
         function triggerWorkflow() {
