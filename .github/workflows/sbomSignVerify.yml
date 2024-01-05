@@ -32,3 +32,10 @@ jobs:
       env:
         INPUT_REPO_URL: ${{ github.event.inputs.repo_url }}
         INPUT_TARGET_DIRECTORY: ${{ github.event.inputs.target_directory }}
+    - name: Show Folder Content
+      run: |
+        ls -al $INPUT_TARGET_DIRECTORY
+
+        
+        
+    
