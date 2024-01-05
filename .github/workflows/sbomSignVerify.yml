@@ -8,7 +8,13 @@ on:
       - '**/README.md'
       - main  # Adjust the branch as needed
   workflow_dispatch:
-
+        inputs:
+            repo_url:
+                description: 'Repository URL'
+                required: true
+            target_directory:
+                description: 'Target Directory'
+                required: true
 jobs:
   clone-repository:
     runs-on: ubuntu-latest
