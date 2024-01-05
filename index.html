@@ -36,6 +36,8 @@
     </header>
 
     <main>
+        <label for="userInput">Enter some input: </label>
+        <input type="text" id="userInput">
         <button onclick="triggerWorkflow()">Trigger Workflow</button>
     </main>
 
@@ -54,10 +56,10 @@
             // Replace 'YOUR_PERSONAL_ACCESS_TOKEN' with your GitHub Personal Access Token
             const token = 'YOUR_PERSONAL_ACCESS_TOKEN';
 
-            // User input
-            const user_input = prompt('Enter some input:');
+            // Get user input
+            const userInput = document.getElementById('userInput').value;
 
-            // Make a POST request to trigger the workflow
+            // Make a POST request to trigger the workflow with user input
             fetch(apiEndpoint, {
                 method: 'POST',
                 headers: {
@@ -67,7 +69,7 @@
                 body: JSON.stringify({
                     ref: 'main', // Replace with your branch name
                     inputs: {
-                        user_input: user_input
+                        user_input: userInput
                     }
                 })
             })
