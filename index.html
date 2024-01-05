@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Actions Trigger</title>
+    <title>Welcome to Catalysit ! </title>
 
     <style>
         body {
@@ -32,17 +32,17 @@
 </head>
 <body>
     <header>
-        <h1>GitHub Actions Trigger</h1>
+        <h1>Welcome to Catalysit !</h1>
     </header>
 
     <main>
-        <label for="userInput">Enter some input: </label>
+        <label for="userInput"> Your Input Please </label>
         <input type="text" id="userInput">
-        <button onclick="triggerWorkflow()">Trigger Workflow</button>
+        <button onclick="triggerWorkflow()"> Start </button>
     </main>
 
     <footer>
-        <p>&copy; 2024 Your Name</p>
+        <p>&copy; Little Push to your Productivity By Catalysit :-) </p>
     </footer>
 
     <script>
@@ -77,11 +77,11 @@
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
-                alert('Workflow triggered successfully!');
+                alert('Your Action started successfully!');
             })
             .catch(error => {
-                console.error('Error triggering workflow:', error);
-                alert('Failed to trigger workflow. Check the console for details.');
+                console.error('Oops Something wrong, Can you send Request again please :', error);
+                alert('It could be some Maping glitch. please Check the console for details :-)');
             });
         }
     </script>
