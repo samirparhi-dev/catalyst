@@ -1,0 +1,28 @@
+name: Clone Repository
+on:
+  push:
+    branches:
+      - master
+      - develop/*
+    paths-ignore:
+      - '**/README.md'
+      - main  # Adjust the branch as needed
+  workflow_dispatch:
+
+jobs:
+  clone-repository:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Clone user-given repository
+      run: |
+        REPO_URL=$INPUT_REPO_URL
+        TARGET_DIRECTORY=$INPUT_TARGET_DIRECTORY
+
+        echo "Cloning repository from $REPO_URL into $TARGET_DIRECTORY"
+        git clone $REPO_URL $TARGET_DIRECTORY
+      env:
+        INPUT_REPO_URL: ${{ github.event.inputs.repo_url }}
+        INPUT_TARGET_DIRECTORY: ${{ github.event.inputs.target_directory }}
